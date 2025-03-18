@@ -2,6 +2,49 @@
 
 npm create vite@latest app-react-ts -- --template react-ts
 
+//install ulang package
+Remove-Item -Recurse -Force node_modules, package-lock.json
+npm install
+
+//===========================================================================================================
+
+//Gunakan Sertifikat SSL Custom (Untuk Produksi atau Penggunaan Tetap)
+//Alternatif: Jika kamu tidak ingin menginstall OpenSSL secara manual, gunakan mkcert (lebih mudah dan tanpa error keamanan di browser):
+npm install --save-dev vite-plugin-mkcert
+
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+import mkcert from 'vite-plugin-mkcert';
+
+export default defineConfig({
+  plugins: [react(), mkcert()], // Tambahkan mkcert ke plugins
+  server: {
+    https: true, // Aktifkan HTTPS
+  },
+});
+
+//======================
+
+//tekan yes di windows
+PS D:\file-kodingan\app-react-ts> npm run dev
+
+> app-react-ts@0.0.0 dev
+> vite
+
+The list of generated files:
+C:\Users\dnrahmath\.vite-plugin-mkcert\dev.pem
+C:\Users\dnrahmath\.vite-plugin-mkcert\cert.pem
+1:07:06 PM [vite] (client) Re-optimizing dependencies because lockfile has changed
+
+  VITE v6.2.2  ready in 22710 ms
+
+  ➜  Local:   https://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+
+//===========================================================================================================
+
+
 //===========================================================================================================
 
 # React + TypeScript + Vite
